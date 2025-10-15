@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipi Detailing - Lavado Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header con logo */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo-placeholder {
+            width: 200px;
+            height: 120px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-text {
+            font-family: 'Brush Script MT', cursive, 'Segoe UI', sans-serif;
+            font-size: 52px;
+            font-weight: bold;
+            font-style: italic;
+            color: #C0C0C0;
+            text-shadow:
+                -2px -2px 0 #4CAF50,
+                2px -2px 0 #4CAF50,
+                -2px 2px 0 #4CAF50,
+                2px 2px 0 #4CAF50,
+                0 0 20px rgba(76, 175, 80, 0.5);
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-detailing {
+            position: absolute;
+            bottom: 15px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #C0C0C0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow:
+                -1px -1px 0 #4CAF50,
+                1px -1px 0 #4CAF50,
+                -1px 1px 0 #4CAF50,
+                1px 1px 0 #4CAF50;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4CAF50, #66BB6A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #C0C0C0;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Descripción del servicio */
+        .service-description {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .service-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .service-card {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .service-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-card h3 {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        .service-card h3 span {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #C0C0C0;
+            line-height: 1.6;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Botones de acción */
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #E1306C 0%, #C13584 100%);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
+        }
+
+        .btn-tertiary {
+            background: rgba(76, 175, 80, 0.15);
+            color: white;
+            border: 2px solid #4CAF50;
+        }
+
+        .btn-tertiary:hover {
+            background: rgba(76, 175, 80, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: rgba(192, 192, 192, 0.6);
+            font-size: 14px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #4CAF50;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Partículas decorativas */
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(76, 175, 80, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-decoration">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-placeholder">
+                <div class="logo-text">Chipi</div>
+                <div class="logo-detailing">DETAILING</div>
+            </div>
+            <p>Lavado Premium</p>
+        </div>
+
+        <!-- Botones de CTA -->
+        <div class="cta-buttons">
+            <a href="https://wa.me/5493416600216?text=Hola%20quer%C3%ADa%20un%20turno%20para%20llevar%20el%20auto"
+                class="btn btn-primary">
+                <span class="btn-icon">📱</span>
+                Reservá tu Turno
+            </a>
+
+            <a href="https://instagram.com/chipi_ditailing" target="_blank" class="btn btn-secondary">
+                <span class="btn-icon">📸</span>
+                Seguinos en Instagram
+            </a>
+
+            <button onclick="downloadVCard()" class="btn btn-tertiary">
+                <span class="btn-icon">💾</span>
+                Guardar Contacto
+            </button>
+        </div>
+
+        <!-- Descripción del servicio -->
+        <div class="service-description">
+            <h2 class="service-title">💎 Nuestro Servicio Premium 💎</h2>
+
+            <div class="service-card">
+                <h3><span>🚗</span> Exterior</h3>
+                <ul>
+                    <li>Lavado a mano con shampoo neutro (protege la pintura)</li>
+                    <li>Limpieza profunda de llantas, neumáticos y pasarruedas</li>
+                    <li>Secado con microfibra para evitar rayas</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3><span>🪑</span> Interior</h3>
+                <ul>
+                    <li>Aspirado completo (alfombras, asientos, baúl)</li>
+                    <li>Limpieza de plásticos, tablero, puertas y rejillas de ventilación</li>
+                    <li>Limpieza de vidrios interiores</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3><span>✨</span> Detalles Extra</h3>
+                <ul>
+                    <li>Desodorización para dejar un aroma fresco</li>
+                    <li>Revisión final para asegurarnos de un acabado perfecto</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-info">
+                📞 341 660-0216<br>
+                📍 @chipi_ditailing
+            </div>
+            <p style="margin-top: 20px;">Powered by TapCard Rosario</p>
+        </div>
+    </div>
+
+    <script>
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Chipi Detailing
+TEL;TYPE=CELL:+5493416600216
+URL:https://instagram.com/chipi_ditailing
+NOTE:Lavado Premium de Autos - Chipi Detailing
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'chipi_detailing.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+
+</html>
