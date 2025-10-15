@@ -34,46 +34,24 @@
         }
 
         .logo-placeholder {
-            width: 200px;
-            height: 120px;
+            width: 100%;
+            max-width: 280px;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
-        .logo-text {
-            font-family: 'Brush Script MT', cursive, 'Segoe UI', sans-serif;
-            font-size: 52px;
-            font-weight: bold;
-            font-style: italic;
-            color: #C0C0C0;
-            text-shadow:
-                -2px -2px 0 #4CAF50,
-                2px -2px 0 #4CAF50,
-                -2px 2px 0 #4CAF50,
-                2px 2px 0 #4CAF50,
-                0 0 20px rgba(76, 175, 80, 0.5);
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
+        .logo-placeholder img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            filter: drop-shadow(0 0 20px rgba(76, 175, 80, 0.5));
+            transition: transform 0.3s ease;
         }
 
-        .logo-detailing {
-            position: absolute;
-            bottom: 15px;
-            right: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            color: #C0C0C0;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow:
-                -1px -1px 0 #4CAF50,
-                1px -1px 0 #4CAF50,
-                -1px 1px 0 #4CAF50,
-                1px 1px 0 #4CAF50;
+        .logo-placeholder img:hover {
+            transform: scale(1.05);
         }
 
         .header h1 {
@@ -342,8 +320,7 @@
         <!-- Header -->
         <div class="header">
             <div class="logo-placeholder">
-                <div class="logo-text">Chipi</div>
-                <div class="logo-detailing">DETAILING</div>
+                <img src="logo.jpg" alt="Chipi Detailing Logo">
             </div>
             <p>Lavado Premium</p>
         </div>
